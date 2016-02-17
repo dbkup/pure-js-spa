@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>settingsApp</title>
+
+    <!-- build:css styles/vendor.css -->
+    <!-- bower:css -->
+    <!-- endbower -->
+    <!-- endbuild -->
+    <link rel="stylesheet" href="//code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+    <!-- build:css styles/main.css -->
+    <link rel="stylesheet" href="styles/main.css">
+    <!-- endbuild -->
+
+  </head>
+  <body>
+    <!--[if lt IE 9]>
+    <p class="browserupgrade">This page is not supported in your browser please upgrade.</p>
+    <![endif]-->
+    <div class="csa-content">
+      <div class="csa-nav-side">
+        <div class="csa-user-details">
+          <div class="csa-user-image">
+            <img src="images/hugh_laurie.png" alt="user image"/>
+          </div>
+          <div>username</div>
+        </div>
+        <nav class="csa-nav-menu">
+          <ul>
+            <li class="csa-nav-element active" data-page-name="account">
+              <i class="ion-ios-people"></i>
+              <span>My Account</span>
+            </li>
+            <li class="csa-nav-element" data-page-name="profile">
+              <i class="ion-ios-eye-outline"></i>
+              <span>My Profile</span>
+            </li>
+            <li class="csa-nav-element" data-page-name="settings">
+              <i class="ion-ios-browsers-outline"></i>
+              <span>Settings</span>
+            </li>
+            <li class="csa-nav-element">
+              <i class="ion-log-out"></i>
+              <span>Logout</span>
+            </li>
+          </ul>
+        </nav>
+      </div>
+      <div id="main-content" class="csa-main-view">
+      </div>
+    </div>
+    <!-- build:js scripts/vendor.js -->
+    <!-- bower:js -->
+    <!-- endbower -->
+    <!-- endbuild -->
+
+    <!-- build:js scripts/main.js -->
+    <!--dependencies-->
+    <script src="scripts/polyfills/customEventPoly.js"></script>
+    <!--core module-->
+    <script src="scripts/appLoader.js"></script>
+    <script src="scripts/core/logger.js"></script>
+    <script src="scripts/core/routing.js"></script>
+    <script src="scripts/core/objectHelpers.js"></script>
+    <script src="scripts/core/storageHelpers.js"></script>
+    <script src="scripts/core/elementHelpers.js"></script>
+    <script src="scripts/core/requestHelpers.js"></script>
+    <script src="scripts/core/eventHelpers.js"></script>
+    <!--modules-->
+    <script src="scripts/modules/settings.js"></script>
+    <script src="scripts/modules/account.js"></script>
+    <script src="scripts/modules/profile.js"></script>
+    <!--app bootstrap -->
+    <script src="scripts/main.js"></script>
+    <!-- endbuild -->
+  </body>
+</html>

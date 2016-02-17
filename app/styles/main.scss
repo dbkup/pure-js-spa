@@ -1,0 +1,213 @@
+// bower:scss
+// endbower
+/*sidebar settings*/
+$sidebar-color: #354854;
+$sidebar-gradient-end: #1A2635;
+$sidebar-size: 296px;
+$sidebar-hover-color: rgba(22, 34, 44, 0.5);
+/* title font colors*/
+$highlight-font-color: #ffffff;
+$highlight-font-size: 1.4em;
+/* base colors */
+$main-font-color: #8DA3C5;
+$main-content-color: #3C545E;
+$main-content-gradient-end: #20303F;
+$primary-button-color: #189AC4;
+/* avatar image size */
+$image-size: 100px;
+/* sizes for padding and margin gutters */
+$gutter-size: 30px;
+/* font size for secondary elements, buttons, titles */
+$secondary-font-size: 0.8em;
+
+$checkbox-size: 32px;
+
+%highlight-base {
+  color: $highlight-font-color;
+  font-size: $highlight-font-size;
+}
+
+@mixin full-height {
+  min-height: 100%;
+  height: 100%;
+}
+
+@mixin top-down-gradient($start-color, $end-color) {
+  background-color: $start-color; /* fallback color */
+  -ms-filter: "progid:DXImageTransform.Microsoft.gradient (GradientType=0, startColorstr=#{$start-color}, endColorstr=#{$end-color})"; /* IE 9*/
+  background-image: -webkit-linear-gradient(top, $start-color, $end-color); /* For Chrome 25 and Safari 6, iOS 6.1, Android 4.3 */
+  background-image: -moz-linear-gradient(top, $start-color, $end-color); /* For Firefox (3.6 to 15) */
+  background-image: -o-linear-gradient(top, $start-color, $end-color); /* For old Opera (11.1 to 12.0) */
+  background-image: linear-gradient(to bottom, $start-color, $end-color); /* Standard syntax; must be last */
+}
+
+@mixin clearfix {
+  &:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+}
+
+@mixin border-radius($size) {
+  -webkit-border-radius: $size; /* Saf3+, Chrome */
+  border-radius: $size;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
+  @include full-height;
+  color: $main-font-color;
+  font-family: Verdana, Geneva, sans-serif;
+}
+
+.hidden {
+  display: none;
+}
+
+.csa-content {
+  @include full-height;
+  @include top-down-gradient($main-content-color, $main-content-gradient-end);
+}
+
+.csa-nav-side {
+  @include full-height;
+  width: $sidebar-size;
+  position: absolute;
+  @include top-down-gradient($sidebar-color, $sidebar-gradient-end);
+  ul {
+    list-style: none;
+    padding-right: 16px;
+    li {
+      padding: 12px;
+      cursor: pointer;
+      @include border-radius(3px);
+      &.active, &:hover {
+        background-color: $sidebar-hover-color;
+        color: $highlight-font-color;
+      }
+      & > span {
+        padding-left: 10px;
+      }
+    }
+  }
+}
+
+.csa-nav-menu {
+  padding: 0 0 0 25px;
+}
+
+.csa-user-details {
+  @extend %highlight-base;
+  margin: $gutter-size auto;
+  text-align: center;
+}
+
+.csa-main-title {
+  @extend %highlight-base;
+  margin: 12px 0;
+}
+
+.csa-sub-title {
+  @extend .csa-main-title;
+  font-size: $secondary-font-size;
+}
+
+.csa-user-image img {
+  width: $image-size;
+  height: $image-size;
+  margin: $gutter-size/2 0;
+  border: 8px solid $sidebar-hover-color;
+  @include border-radius(50%);
+}
+
+.csa-main-view {
+  padding: $gutter-size $gutter-size 0 $sidebar-size+$gutter-size;
+}
+
+.csa-setting-item {
+  @include clearfix;
+  line-height: $checkbox-size;
+  margin: 8px 0;
+  &>span {
+    float: left;
+  }
+  &>div {
+    float: right;
+  }
+}
+
+.csa-control {
+  cursor: pointer;
+}
+
+.csa-setting-controls {
+  @include clearfix;
+  float: right;
+  margin: 10px 0;
+}
+
+.csa-main-body {
+  padding-top: $gutter-size/2;
+  border-top: 1px solid $sidebar-hover-color;
+}
+
+.csa-body-text {
+  padding: $gutter-size/2 0;
+}
+
+.csa-button {
+  @extend .csa-control;
+  border-radius: 2px;
+  padding: 8px 18px;
+  font-weight: bold;
+  font-size: $secondary-font-size;
+  &.main {
+    color: $highlight-font-color;
+    background-color: $primary-button-color;
+    &:hover, &:focus {
+      background-color: $highlight-font-color;
+      color: $primary-button-color;
+      outline: none;
+    }
+  }
+  &.secondary {
+    color: $main-font-color;
+    background-color: rgba(0, 0, 0, 0);
+    &:hover {
+      color: $primary-button-color;
+      padding: 6px 16px;
+      border: 2px solid $primary-button-color;
+      outline: none;
+    }
+  }
+  &.confirmation {
+    color: $main-font-color;
+    cursor: auto;
+    padding: 6px 16px;
+    border: 2px solid $main-font-color;
+    outline: none;
+  }
+}
+
+input[type="checkbox"] {
+  display: none;
+}
+
+input[type="checkbox"] + label span {
+  display: inline-block;
+  width: $checkbox-size;
+  height: $checkbox-size;
+  margin: -1px 6px 0 0;
+  vertical-align: middle;
+  background: url("../images/checkboxes.png") left top no-repeat;
+  cursor: pointer;
+}
+
+input[type="checkbox"]:checked + label span {
+  background: url("../images/checkboxes.png") -$checkbox-size top no-repeat;
+}
